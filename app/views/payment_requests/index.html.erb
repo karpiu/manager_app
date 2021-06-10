@@ -1,0 +1,9 @@
+<ul>
+  <% @payment_requests.each do |payment_request| %>
+    <li>
+      <%= "#{payment_request.id}: #{payment_request.amount} #{payment_request.currency}, state: #{payment_request.state}" %>
+      <%= link_to 'Accept', accept_payment_request_path(payment_request), method: :post %>
+      <%= link_to 'Reject', reject_payment_request_path(payment_request), method: :post %>
+    </li>
+  <% end %>
+</ul>
